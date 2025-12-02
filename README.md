@@ -13,14 +13,14 @@
 
 ## II. Deskripsi & Tujuan Proyek
 
-[cite_start]Proyek ini adalah tugas **Supervised Classification** menggunakan algoritma **Support Vector Machine (SVM)** untuk memprediksi **STATUS KELULUSAN** mahasiswa (TEPAT WAKTU / TERLAMBAT)[cite: 21].
+Proyek ini adalah tugas **Supervised Classification** menggunakan algoritma **Support Vector Machine (SVM)** untuk memprediksi **STATUS KELULUSAN** mahasiswa (TEPAT WAKTU / TERLAMBAT).
 
-[cite_start]Dataset yang digunakan, `datakelulusanmahasiswa.csv`, berisi 14 atribut mahasiswa, termasuk Indeks Prestasi Kumulatif (IPK), nilai IPS per semester, umur, dan status demografi[cite: 24, 34].
+Dataset yang digunakan, `datakelulusanmahasiswa.csv`, berisi 14 atribut mahasiswa, termasuk Indeks Prestasi Kumulatif (IPK), nilai IPS per semester, umur, dan status demografi.
 
 Tujuan utama adalah:
-1. [cite_start]Melakukan **Eksplorasi** dan **Preprocessing** data[cite: 26, 27].
-2. [cite_start]Membangun model klasifikasi SVM dengan kernel **Linear** dan **RBF**[cite: 76, 77].
-3. [cite_start]Mengevaluasi kinerja model dan menginterpretasikan fitur dominan[cite: 29, 93].
+1. Melakukan **Eksplorasi** dan **Preprocessing** data.
+2. Membangun model klasifikasi SVM dengan kernel **Linear** dan **RBF**.
+3. Mengevaluasi kinerja model dan menginterpretasikan fitur dominan.
 
 ---
 
@@ -28,10 +28,10 @@ Tujuan utama adalah:
 
 | Tahap | Fokus Utama |
 | :--- | :--- |
-| **Bagian A & B** | [cite_start]**Data Insight:** Loading data, pemeriksaan *missing values* [cite: 56][cite_start], **Exploratory Data Analysis** (Statistik deskriptif dan visualisasi distribusi IPK)[cite: 59, 61]. |
-| **Bagian C** | [cite_start]**Data Preparation:** Penanganan *missing values* [cite: 68][cite_start], **Encoding** data kategorikal [cite: 69][cite_start], **Feature Scaling** menggunakan StandardScaler (wajib) [cite: 70, 73][cite_start], dan **Train-Test Split**[cite: 71]. |
-| **Bagian D** | [cite_start]**Model Training:** Melatih model SVM menggunakan **GridSearchCV** untuk **Hyperparameter Tuning** (`C` dan `Kernel`)[cite: 78, 79, 81]. |
-| **Bagian E & F** | [cite_start]**Interpretation & Deployment:** Analisis fitur berpengaruh, kesimpulan [cite: 93, 95][cite_start], dan pembuatan fungsi `predict_status()` untuk simulasi prediksi[cite: 97, 99]. |
+| **Bagian A & B** | **Data Insight:** Loading data, pemeriksaan *missing values*, **Exploratory Data Analysis** (Statistik deskriptif dan visualisasi distribusi IPK). |
+| **Bagian C** | **Data Preparation:** Penanganan *missing values*, **Encoding** data kategorikal, **Feature Scaling** menggunakan StandardScaler (wajib), dan **Train-Test Split**. |
+| **Bagian D** | **Model Training:** Melatih model SVM menggunakan **GridSearchCV** untuk **Hyperparameter Tuning** (`C` dan `Kernel`). |
+| **Bagian E & F** | **Interpretation & Deployment:** Analisis fitur berpengaruh, kesimpulan, dan pembuatan fungsi `predict_status()` untuk simulasi prediksi. |
 
 ---
 
@@ -65,8 +65,8 @@ Model terbaik dipilih melalui Grid Search pada *Test Set* (20% data) setelah *tr
 
 ### C. Interpretasi dan Kesimpulan
 
-1.  **Keputusan Kernel:** Model terbaik yang dipilih adalah **Linear** dengan parameter $C=0.1$. [cite_start]Meskipun data mungkin tidak sepenuhnya *linearly separable*, parameter $C$ yang kecil menunjukkan model lebih mengutamakan *margin* pemisah yang luas untuk meningkatkan generalisasi pada data uji[cite: 89].
-2.  **Kinerja Kelas:** Model sangat efektif ketika memprediksi status **TERLAMBAT** (Precision = $0.96$), namun menunjukkan kesulitan dalam mengidentifikasi $7$ mahasiswa yang sebenarnya terlambat (False Negative), yang mengurangi *Recall* kelas tersebut ($0.79$).
+1.  **Keputusan Kernel:** Model terbaik yang dipilih adalah **Linear** dengan parameter $C=0.1$. Meskipun ada kemungkinan data tidak sepenuhnya *linearly separable*, parameter $C$ yang kecil menunjukkan model lebih mengutamakan *margin* pemisah yang luas untuk meningkatkan generalisasi pada data uji.
+2.  **Kinerja Kelas:** Model sangat efektif ketika memprediksi status **TERLAMBAT** (Precision = $0.96$). Namun, adanya $7$ kasus False Negative menunjukkan adanya kesulitan dalam mengidentifikasi sebagian mahasiswa yang sebenarnya terlambat (Recall = $0.79$).
 3.  **Generalisasi:** Akurasi keseluruhan sebesar $89.47\%$ menunjukkan model telah dilatih dengan baik, dan fitur akademik merupakan prediktor yang kuat.
 
 ---
@@ -75,7 +75,6 @@ Model terbaik dipilih melalui Grid Search pada *Test Set* (20% data) setelah *tr
 
 1.  Instal pustaka yang dibutuhkan: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`.
 2.  Buka dan jalankan *notebook* `SVM_kelulusan.ipynb`.
-
 
 ### Bukti Eksekusi (Screenshot Hasil Prediksi Bagian F)
 
