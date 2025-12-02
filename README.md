@@ -44,3 +44,24 @@ Model terbaik dipilih melalui Grid Search pada *Test Set* (20% data) setelah *tr
 ### Confusion Matrix
 
 Menunjukkan bagaimana model mengklasifikasikan data pada *Test Set* (43 TEPAT, 33 TERLAMBAT):
+
+| Prediksi | Sebenarnya TEPAT | Sebenarnya TERLAMBAT |
+| :--- | :--- | :--- |
+| **Prediksi TEPAT** | 42 (True Negatives) | 7 (False Negatives) |
+| **Prediksi TERLAMBAT** | 1 (False Positives) | 26 (True Positives) |
+
+### Classification Report
+
+| Kelas | Precision | Recall | F1-Score | Support |
+| :--- | :--- | :--- | :--- | :--- |
+| **TEPAT** | 0.86 | 0.98 | 0.91 | 43 |
+| **TERLAMBAT** | 0.96 | 0.79 | 0.87 | 33 |
+| **Accuracy** | | | 0.89 | 76 |
+| **Macro Avg** | 0.91 | 0.88 | 0.89 | 76 |
+| **Weighted Avg** | 0.90 | 0.89 | 0.89 | 76 |
+
+### Interpretasi Hasil
+
+1.  **Model Terbaik:** Model **Linear** dipilih sebagai model terbaik dengan `C=0.1`, yang menunjukkan bahwa data cenderung memiliki batas pemisah yang cukup baik di ruang fitur yang ditransformasi, atau bahwa margin kesalahan yang lebar (karena C kecil) lebih optimal untuk generalisasi.
+2.  **Kinerja Kelas:** Model memiliki **Precision** yang sangat tinggi untuk kelas **TERLAMBAT** (0.96), yang berarti ketika model memprediksi mahasiswa akan terlambat, hampir selalu benar. Namun, **Recall** untuk kelas TERLAMBAT lebih rendah (0.79), mengindikasikan bahwa model gagal mengidentifikasi 7 dari 33 mahasiswa yang sebenarnya terlambat (False Negatives).
+3.  **Generalisasi:** Nilai akurasi 0.8947 menunjukkan model memiliki kinerja yang baik dalam memprediksi status kelulusan secara keseluruhan.
